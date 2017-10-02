@@ -8,8 +8,15 @@ import { useKoaServer, useContainer as useContainerForRoute } from 'routing-cont
 import { Container } from 'typedi'
 import { useContainer as useContainerForOrm } from 'typeorm'
 import { database } from './libraries/database'
+import * as views from 'koa-views'
 
 const app = new Koa()
+
+app.use(views(__dirname + '/views', {
+  map: {
+    twig: 'twig'
+  }
+}))
 
 useContainerForRoute(Container)
 useContainerForOrm(Container)
