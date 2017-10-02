@@ -1,0 +1,24 @@
+database:
+  name: milk
+  host: 127.0.0.1
+  port: 3306
+  username: root
+  password:
+  logging: false
+  sync: true
+
+cache:
+  host: 127.0.0.1
+  port: 6379
+  db: 0
+
+jwt:
+  secret: ABXZcxQ7GM8fzv0ltcQbbd3gedz0H209
+  algorithm: RS256
+  exp: 5184000000
+
+sentry:
+  uri: 
+
+env: development
+port: 8000

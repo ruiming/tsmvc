@@ -14,9 +14,12 @@
     "lint": "tslint --type-check --fix --project tsconfig.json '{src,test}/**/*.ts'",
     "precommit": "lint-staged",
     "commit": "git-cz",
-    "commitmsg": "validate-commit-msg"
+    "commitmsg": "validate-commit-msg",
+    "initdb": "ts-node ./task/initdb.ts",
+    "aa": "ts-node ./src/index.ts"
   },
   "devDependencies": {
+    "@types/faker": "^4.1.1",
     "@types/mocha": "^2.2.41",
     "@types/node": "7.0.28",
     "@types/power-assert": "^1.4.29",
@@ -25,6 +28,7 @@
     "cross-env": "^5.0.5",
     "cz-conventional-changelog": "^2.0.0",
     "espower-typescript": "^8.0.2",
+    "faker": "^4.1.0",
     "husky": "^0.13.4",
     "lint-staged": "^4.0.2",
     "mocha": "^3.4.2",
@@ -66,5 +70,18 @@
     "exclude": [
       "test"
     ]
+  },
+  "dependencies": {
+    "@types/koa-logger": "^2.0.2",
+    "config": "^1.26.2",
+    "koa": "^2.3.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-logger": "^3.1.0",
+    "koa-router": "^7.2.1",
+    "mysql": "^2.14.1",
+    "reflect-metadata": "^0.1.10",
+    "routing-controllers": "^0.7.3",
+    "typedi": "^0.5.2",
+    "typeorm": "^0.1.0-alpha.45"
   }
 }
