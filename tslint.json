@@ -1,0 +1,15 @@
+{
+    "defaultSeverity": "warn",
+    "extends": [
+        "tslint-config-standard"
+    ],
+    "rules": {
+        "typedef": [
+            true, 
+            "call-signature", 
+            "parameter", 
+            "member-variable-declaration"
+        ],
+        "await-promise": false
+    }
+}
