@@ -1,5 +1,6 @@
 import { Article } from '../entities/Article'
 import { BadRequestError } from 'routing-controllers'
+import { app } from 'config'
 import {
   EntityRepository,
   Repository
@@ -18,5 +19,15 @@ export class ArticleRepository extends Repository<Article> {
     }
 
     return article
+  }
+
+  async getArticleList (page: number = 0): Promise<Article[]> {
+    const articles = await this.createQueryBuilder('article')
+                               .leftJoinAndSelect('article.tags', 'tags')
+                               .limit(app.perpage)
+                               .offset(app.perpage * page)
+                               .getMany()
+
+    return articles
   }
 }

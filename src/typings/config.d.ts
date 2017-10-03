@@ -23,6 +23,10 @@ declare module 'config' {
     exp: number;
   }
 
+  export const app: {
+    perpage: number
+  }
+
   export const sentry: {
     uri: string;
   }

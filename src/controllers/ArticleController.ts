@@ -15,7 +15,7 @@ export class ArticleController {
   articleRepository: ArticleRepository = getConnection().getCustomRepository(ArticleRepository)
 
   @Get('/')
-  @Render('articles.twig')
+  @Render('articles')
   async test (): Promise<{
     articles: Article[];
   }> {

@@ -8,23 +8,36 @@ import { useKoaServer, useContainer as useContainerForRoute } from 'routing-cont
 import { Container } from 'typedi'
 import { useContainer as useContainerForOrm } from 'typeorm'
 import { database } from './libraries/database'
-import * as views from 'koa-views'
+import * as path from 'path'
 
 const app = new Koa()
 
-app.use(views(__dirname + '/views', {
-  map: {
-    twig: 'twig'
+app.use(require('koa-nunjucks-2')({
+  ext: 'njk',
+  path: path.join(__dirname, 'views'),
+  nunjucksConfig: {
+    trimBlocks: true
   }
 }))
+
+app.use(require('koa-error')({
+  engine: 'nunjucks',
+  template: path.join(__dirname, 'views', 'error.njk')
+}))
+app.use(logger())
 
 useContainerForRoute(Container)
 useContainerForOrm(Container)
 
-app.use(logger())
+app.use(async (ctx, next) => {
+  console.log(ctx.url)
+  await next()
+  console.log(ctx.url)
+})
 
 useKoaServer(app, {
-  controllers: [`${__dirname}/controllers/*{js,ts}`]
+  controllers: [`${__dirname}/controllers/*{js,ts}`],
+  defaultErrorHandler: false
 })
 
 export const connection = database().then(async c => {

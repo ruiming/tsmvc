@@ -16,7 +16,24 @@
     "commit": "git-cz",
     "commitmsg": "validate-commit-msg",
     "initdb": "ts-node ./task/initdb.ts",
-    "aa": "ts-node ./src/index.ts"
+    "html": "cp -r ./src/views ./build/src/views"
+  },
+  "dependencies": {
+    "@types/koa-logger": "^2.0.2",
+    "config": "^1.26.2",
+    "koa": "^2.3.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-error": "^3.1.0",
+    "koa-logger": "^3.1.0",
+    "koa-nunjucks-2": "^3.0.2",
+    "koa-router": "^7.2.1",
+    "koa-views": "^6.1.0",
+    "mysql": "^2.14.1",
+    "nunjucks": "^3.0.1",
+    "reflect-metadata": "^0.1.10",
+    "routing-controllers": "^0.7.3",
+    "typedi": "^0.5.2",
+    "typeorm": "^0.1.0-alpha.45"
   },
   "devDependencies": {
     "@types/faker": "^4.1.1",
@@ -71,20 +88,5 @@
     "exclude": [
       "test"
     ]
-  },
-  "dependencies": {
-    "@types/koa-logger": "^2.0.2",
-    "config": "^1.26.2",
-    "koa": "^2.3.0",
-    "koa-bodyparser": "^4.2.0",
-    "koa-logger": "^3.1.0",
-    "koa-router": "^7.2.1",
-    "koa-views": "^6.1.0",
-    "mysql": "^2.14.1",
-    "reflect-metadata": "^0.1.10",
-    "routing-controllers": "^0.7.3",
-    "twig": "^1.10.5",
-    "typedi": "^0.5.2",
-    "typeorm": "^0.1.0-alpha.45"
   }
 }

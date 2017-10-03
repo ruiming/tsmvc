@@ -20,5 +20,8 @@ jwt:
 sentry:
   uri: 
 
+app:
+  perpage: 10 # 首页显示的博客数量
+
 env: development
 port: 8000
